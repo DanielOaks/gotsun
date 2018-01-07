@@ -1,0 +1,33 @@
+# GotsunDiary config
+
+# addresses to listen on
+listeners:
+  - "localhost:4450"
+  # - "localhost:4460"
+
+# tls listeners
+tls-listeners:
+  # listener on localhost:4460
+  "localhost:4460":
+    key: tls.key
+    cert: tls.cert
+
+# database config
+database:
+  # database type
+  # current supported types are:
+  #   buntdb - single file stored using buntdb
+  type: buntdb
+
+  # path is the file path to use, for compatible dbs
+  path: diary.db
+
+# folder that the templates reside in
+templates: templates
+
+# folder that the static files reside in
+static-files: static
+
+# prompts are the cute little randomly-generated messages.
+# they're stored in a separate file
+prompts: prompts.yaml

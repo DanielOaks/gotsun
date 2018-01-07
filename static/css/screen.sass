@@ -1,0 +1,64 @@
+// variables
+//
+$desktop-width: 57rem
+$mobile-width: 30rem
+$standard_font_family: "Open Sans", sans-serif
+$content_font_family: "Open Sans", sans-serif
+$mono_font_family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace
+
+// Media queries
+//
+@mixin respond-to($media)
+    @if $media == wide
+        @media only screen and (min-width: $desktop-width)
+            @content
+    @else if $media == desktop
+        @media only screen and (min-width: $mobile-width) and (max-width: $desktop-width)
+            @content
+    @else if $media == mobile
+        @media only screen and (max-width: $mobile-width)
+            @content
+
+// reset
+//
+@import 'meyer-reset'
+
+// styling
+//
+html
+    box-sizing: border-box
+*, *:before, *:after
+    box-sizing: inherit
+
+// table stuff
+html, body
+    font-family: $standard_font_family
+    width: 100%
+    height: 100%
+
+.wrapper
+    @media screen
+        max-width: $desktop-width
+        margin: 0 auto
+    @media print
+        width: 100%
+    padding: 1rem
+
+p
+    margin-top: 0.5rem
+    + p
+        margin-top: 1rem
+
+li
+    + li
+        margin-top: 0.9rem
+    p
+        &:first-child
+            margin-top: 0
+        &:last-child
+            margin-bottom: 0
+
+// default theme
+body
+    background: #FFEFE8
+    color: #33302E
